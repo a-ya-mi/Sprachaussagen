@@ -15,13 +15,14 @@ import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JFrame;
 
 
 /**
  *
  * @author Aksana
  */
-public class Sprachaussagen {
+public class Sprachaussagen extends JFrame{
 
     public static void main(String[] args) {
         String zugName="";
@@ -36,6 +37,10 @@ public class Sprachaussagen {
             System.out.println("Geben Sie bitte Zugnummer und Verspätungszeit!");
         }
 
+        Zug zug =new Zug(zugName,zugZeitVersp);
+        String a="Den Zug "+zug.zug+" hat eine Verspätung um "+zug.zeitVersp+" Minuten";
+        JFrame jf = new FrameAussagen(a);
+        
         ArrayList<String> aussagen = new ArrayList<String>();
         aussagenListfuellen(aussagen);
         
@@ -45,15 +50,9 @@ public class Sprachaussagen {
         spielen(aussagen.get(3));
         spielen(aussagen.get(4));
         
-        Zug zug =new Zug(zugName,zugZeitVersp);
-        ausgabe(zug);
         
     }    
     
-    public  static void ausgabe(Zug zug){
-          System.out.println("Den Zug "+zug.zug+" hat eine Verspätung um "+zug.zeitVersp+" Minuten");
-    }    
-   
 
     public  static void spielen(String name){
         try {
