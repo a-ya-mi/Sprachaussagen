@@ -29,10 +29,12 @@ public class FrameAussagen extends JFrame {
        textAussage = new JLabel(description);
        //to see the Text inside we use Bounds
        textAussage.setBounds(120,7,500,30);
-       Font schrift = new Font ("Serif", Font.BOLD + Font.ITALIC, 22);
+       Font schrift = new Font ("Serif", Font.BOLD, 22);
        textAussage.setFont(schrift);
+       textAussage.setForeground(Color.white);
        add(textAussage);
-        
+    
+       getContentPane().setBackground(Color.BLUE);
        setVisible(true);
     
     } 
