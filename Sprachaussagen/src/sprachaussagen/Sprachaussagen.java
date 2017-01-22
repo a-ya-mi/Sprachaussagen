@@ -97,11 +97,11 @@ public class Sprachaussagen extends JFrame{
     
    private static class Zug{
         private static String zug;
-        private static String zeitVersp;
+        private static Integer zeitVersp;
         
         Zug(String zug, String zeit){
             this.zug=zug;
-            this.zeitVersp=zeit;
+            this.zeitVersp=Integer.parseInt(zeit);
         }
    }
    
