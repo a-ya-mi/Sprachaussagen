@@ -26,23 +26,26 @@ public class Sprachaussagen extends JFrame{
 
     public static void main(String[] args) {
         String zugName="";
-        String zugZeitVersp="";
-        BufferedReader br=new BufferedReader (new InputStreamReader(System.in));
-        try{
-            zugName=br.readLine();
-            zugZeitVersp=br.readLine();
-            br.close();
-        }
-        catch(Exception e){
-            System.out.println("Geben Sie bitte Zugnummer und Verspätungszeit!");
-        }
+        String zugZeitVersp="0";
 
-        Zug zug =new Zug(zugName,zugZeitVersp);
-        String a="Den Zug "+zug.zug+" hat eine Verspätung um "+zug.zeitVersp+" Minuten";
-        JFrame jf = new FrameAussagen(a);
+        
+        //Die Nummer des Zuges und die Verspätungszeit von Console eingeben
+//        BufferedReader br=new BufferedReader (new InputStreamReader(System.in));
+//        try{
+//            zugName=br.readLine();
+//            zugZeitVersp=br.readLine();
+//            br.close();
+//        }
+//        catch(Exception e){
+//            System.out.println("Geben Sie bitte Zugnummer und Verspätungszeit!");
+//        }
+        
         
         ArrayList<String> aussagen = new ArrayList<String>();
         aussagenListfuellen(aussagen);
+        
+        
+        JFrame jf = new FrameAussagen();
         
         spielen(aussagen.get(0));
         spielen(aussagen.get(1));
@@ -93,16 +96,5 @@ public class Sprachaussagen extends JFrame{
         aussagen.add(3,"NummerDesZuges");
         aussagen.add(4,"Zeit");
     }
-    
-    
-   private static class Zug{
-        private static String zug;
-        private static Integer zeitVersp;
-        
-        Zug(String zug, String zeit){
-            this.zug=zug;
-            this.zeitVersp=Integer.parseInt(zeit);
-        }
-   }
    
 }
